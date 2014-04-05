@@ -52,7 +52,7 @@
     </dependencies>
 
     <build>
-        <finalName>courserater</finalName>
+        <finalName>courserater.war</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
