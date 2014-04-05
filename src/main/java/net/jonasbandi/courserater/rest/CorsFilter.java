@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(filterName = "CorsFilter", urlPatterns = {"/*"})
+@WebFilter(filterName = "CorsFilter", urlPatterns = {"/rest/ratings-cors/*"})
 public class CorsFilter implements Filter{
 	
 	private final static Logger log = Logger.getLogger(CorsFilter.class.getName()); 
