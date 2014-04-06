@@ -28,6 +28,7 @@ public class CorsFilter implements Filter{
     	final HttpServletResponse httpResponse = (HttpServletResponse)servletResponse;
     	
     	// Java EE 7 adds javax.ws.rs.container.ContainerResponseFilter ... maybe a better solution?
+        // Simple example: https://github.com/AdamBien/cors/
     	
     	String method = httpRequest.getMethod();
     	log.info("Http request with method: " + method);
@@ -35,15 +36,15 @@ public class CorsFilter implements Filter{
     	// For most requests the headers have to be added before further processing, afterwards they just don't get added
         httpResponse.addHeader("Access-Control-Allow-Origin", "*");
         httpResponse.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        httpResponse.addHeader("Access-Control-Allow-Headers", "x-requested-with, accept, origin, authorization, X-PINGOTHER");
+        httpResponse.addHeader("Access-Control-Allow-Headers", "content-type, x-requested-with, accept, origin, authorization, X-PINGOTHER");
         httpResponse.addHeader("Access-Control-Max-Age", "10");
         
         filterChain.doFilter(servletRequest,servletResponse);
         
-        // For OPTIONS requests the headers have to be added after the other processing
+        // For OPTIONS requests the headers have to be added after the other processing ... WTF?
         httpResponse.setHeader("Access-Control-Allow-Origin", "*");
         httpResponse.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        httpResponse.addHeader("Access-Control-Allow-Headers", "x-requested-with, accept, origin, authorization, X-PINGOTHER");
+        httpResponse.addHeader("Access-Control-Allow-Headers", "content-type, x-requested-with, accept, origin, authorization, X-PINGOTHER");
         httpResponse.addHeader("Access-Control-Max-Age", "10");
         
     }
