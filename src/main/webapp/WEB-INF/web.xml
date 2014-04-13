@@ -14,6 +14,7 @@
             <!--<web-resource-name>HtmlAuth</web-resource-name>-->
             <!--<description>application security constraints</description>-->
             <!--<url-pattern>/*</url-pattern>-->
+            <!--<http-method-omission>OPTIONS</http-method-omission> &lt;!&ndash; Browsers send the CORS Preflight Request without authorization headers! &ndash;&gt;-->
         <!--</web-resource-collection>-->
         <!--<auth-constraint>-->
             <!--<role-name>User</role-name>-->
